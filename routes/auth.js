@@ -10,6 +10,9 @@ router.post(
   "/register",
   [
     check("email", "Неверный email!").isEmail(),
+    check("name", "Имя должно быть заполнено!")
+      .not()
+      .isEmpty(),
     check("password", "Минимальная длина пароля - 6 символов").isLength({
       min: 6
     })
